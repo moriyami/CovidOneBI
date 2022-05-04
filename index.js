@@ -38,7 +38,20 @@ for(var i=0; i<TotalNumberOfCovidTests; i++)
 }
 document.getElementById("TotalNumberOfPositiveTests_Men").innerHTML= 'Numer Of Men:'+ '' + TotalPositiveTests_Men
 
-   
+
+
+//pie for women men
+//women %
+var percentwomen= (TotalPositiveTests_Women/TotalPositiveTests)*100
+//document.getElementById("my-pie-chart").style.background=percentwomen
+//men %
+//var percentmen= (TotalPositiveTests_Men/TotalPositiveTests)*100
+//document.getElementById("my-pie-chart").style.background=percentmen
+document.getElementById("my-pie-chart").style.background = "conic-gradient(brown 0.00% " + percentwomen + "%, black " +percentwomen + "% 100%)";
+
+
+
+
         console.log("got vailed data print to script")
 
     } 
@@ -50,5 +63,11 @@ request.send()
 
 }
 
-   // }
+
+function setData()
+{
+    
+
+}
+   
       

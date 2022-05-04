@@ -9,10 +9,33 @@
 
 <body>
 <h1>Api Data</h1>
+
+<label for="dateofbirth">Pick Date</label>
+<input type="date" name="dateofbirth" id="dateofbirth">
+<button type="Date Picker">Click Me!</button>
+
+
 <p id="TotalNumberOfCovidTests"></p>
 <p id="TotalNumberOfPositiveTests"></p>
 <p id="TotalNumberOfPositiveTests_Women"></p>
 <p id="TotalNumberOfPositiveTests_Men"></p>
+
+<!--Pie for men women -->
+<div id="my-pie-chart-container">
+    <div id="my-pie-chart"></div>
+  
+    <div id="legenda">
+      <div class="entry">
+        <div id="color-brown" class="entry-color"></div>
+        <div class="entry-text">men</div>
+      </div>
+      <div class="entry">
+        <div id="color-black" class="entry-color"></div>
+        <div class="entry-text">women</div>
+    </div>
+</div>
+
+
 <script>// doc was loaded successfully - then run HTML CODE
     (function() {
         LoadData() 
