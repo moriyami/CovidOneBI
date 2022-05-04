@@ -10,9 +10,20 @@
 <body>
 <h1>Api Data</h1>
 
-<label for="dateofbirth">Pick Date</label>
-<input type="date" name="dateofbirth" id="dateofbirth">
-<button type="Date Picker">Click Me!</button>
+
+<input type="radio" id="AllData" onclick="choice_Date_True_False=false" name="fav_language" value="All">
+<label for="AllData">All</label><br>
+<input type="radio" id="PickedByDate" onclick="choice_Date_True_False=true" name="fav_language" value="Picked By Date">
+<label for="PickedByDate">Picked By Date</label><br>
+
+
+<label for="start">Start date:</label>
+
+<input type="date" id="start" name="trip-start"
+       value="2022-03-03"
+       min="2019-01-01" max="2022-03-03">
+
+<button type="Date Picker" onclick="getmydate()">Click Me!</button>
 
 
 <p id="TotalNumberOfCovidTests"></p>
