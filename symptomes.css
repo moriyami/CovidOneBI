@@ -1,0 +1,56 @@
+ /* Add a black background color to the top navigation */
+ .topnav {
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    display: block;
+    color: #38077c;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add an active class to highlight the current page */
+  .topnav a.active {
+    background-color: #26709b;
+    color: white;
+  }
+  
+  /* Hide the link that should open and close the topnav on small screens */
+  .topnav .icon {
+    display: none;
+  }
+
+  
+
+  
+* {box-sizing:border-box}
+
+/* Container for skill bars */
+.container {
+  width: 100%; /* Full width */
+  background-color: #ddd; /* Grey background */
+}
+
+.skills {
+  text-align: right; /* Right-align text */
+  padding-top: 10px; /* Add top padding */
+  padding-bottom: 10px; /* Add bottom padding */
+  color: white; /* White text color */
+}
+
+#cough_symptoms { background-color: #04AA6D;} /* Green */
+#Fever_symptoms { background-color: #2196F3;} /* Blue */
+#Sore_Throat_symptoms { background-color: #f44336;} /* Red */
+#shortness_breath_symptoms { background-color: #808080;} /* Dark Grey */
+#Headache_symptoms { background-color: #9d37a4;} /* Dark Grey */

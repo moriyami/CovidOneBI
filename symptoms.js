@@ -51,10 +51,22 @@ function setData()
     document.getElementById("TotalNumberOfCovidTests").innerHTML='Numer of total covid tests:' + '' + TotalNumberOfCovidTests;
     document.getElementById("TotalNumberOfPositiveTests").innerHTML= 'Numer Of Sick People:'+ '' + TotalPositiveTests
     document.getElementById("TotalNumberOfPositiveTests_Women").innerHTML= 'Numer Of Women:'+ '' + TotalPositiveTests_Women
-    document.getElementById("TotalNumberOfPositiveTests_Men").innerHTML= 'Numer Of Men:'+ '' + TotalPositiveTests_Men
-    document.getElementById("my-pie-chart").style.background = "conic-gradient(brown 0.00% " + percentwomen + "%, black " +percentwomen + "% 100%)";
-    document.getElementById("my-pie-chart-age").style.background = "conic-gradient(brown 0.00% " + percentAboveAge60 + "%, black " +percentAboveAge60 + "% 100%)";
-    document.getElementById("my-pie-chart-tested").style.background = "conic-gradient(brown 0.00% " + percentpossitive + "%, black " +percentpossitive + "% 100%)";
+
+    document.getElementById("cough_symptoms").style.width =  Math.trunc(percentcoughsymptoms)+"%";
+    document.getElementById("cough_symptoms").innerHTML= Math.trunc(percentcoughsymptoms)+"%"
+
+    document.getElementById("Fever_symptoms").style.width = Math.trunc(percentfeversymptoms)+"%";
+    document.getElementById("Fever_symptoms").innerHTML= Math.trunc(percentfeversymptoms)+"%"
+
+    document.getElementById("Sore_Throat_symptoms").style.width =  Math.trunc(percentsorethroatsymptoms)+"%";
+    document.getElementById("Sore_Throat_symptoms").innerHTML= Math.trunc(percentsorethroatsymptoms)+"%"
+
+    document.getElementById("shortness_breath_symptoms").style.width =  Math.trunc(percentshortnessofbreathsymptoms)+"%";
+    document.getElementById("shortness_breath_symptoms").innerHTML= Math.trunc(percentshortnessofbreathsymptoms)+"%"
+
+    document.getElementById("Headache_symptoms").style.width =  Math.trunc(percentheadachesymptoms)+"%";
+    document.getElementById("Headache_symptoms").innerHTML= Math.trunc(percentheadachesymptoms)+"%"
+
 }
    
       
@@ -79,6 +91,7 @@ function caldata()
      percentshortnessofbreathsymptoms=0;
      headache=0;
      percentheadachesymptoms=0;
+     
 
 
     if(choice_Date_True_False == false)
@@ -140,7 +153,74 @@ function caldata()
            TotalAboveAge60++;
    }
    percentAboveAge60=(TotalAboveAge60/TotalPositiveTests)*100
-   
+
+
+
+   //number of age each symtop
+
+   //number of cough
+   for(var i=0; i<TotalNumberOfCovidTests; i++)
+   {
+         if(data.result.records[i].cough == '1'  && !choice_Date_True_False)
+         coughsymptoms++
+ 
+        else if(data.result.records[i].cough == '1'  && data.result.records[i].test_date == getdate)
+        coughsymptoms++;
+   }
+   percentcoughsymptoms=(coughsymptoms/TotalPositiveTests)*100
+   arr.push(0, percentcoughsymptoms);
+
+
+      //number of fever
+   for(var i=0; i<TotalNumberOfCovidTests; i++)
+   {
+         if(data.result.records[i].fever == '1'  && !choice_Date_True_False)
+         feversymptoms++
+ 
+        else if(data.result.records[i].fever == '1'  && data.result.records[i].test_date == getdate)
+        feversymptoms++;
+   }
+   percentfeversymptoms=(feversymptoms/TotalPositiveTests)*100
+   //arr.push(1, percentfeversymptoms);
+
+ //number of sorethroat
+    for(var i=0; i<TotalNumberOfCovidTests; i++)
+    {
+       if(data.result.records[i].sore_throat == '1'  && !choice_Date_True_False)
+       sorethroat++
+
+      else if(data.result.records[i].sore_throat == '1'  && data.result.records[i].test_date == getdate)
+      sorethroat++;
+    }
+    percentsorethroatsymptoms=(sorethroat/TotalPositiveTests)*100
+    //arr.push(2, percentsorethroatsymptoms);
+
+         //number of shortness_of_breath
+    for(var i=0; i<TotalNumberOfCovidTests; i++)
+    {
+       if(data.result.records[i].shortness_of_breath == '1'  && !choice_Date_True_False)
+       shortnessofbreath++
+
+      else if(data.result.records[i].shortness_of_breath == '1'  && data.result.records[i].test_date == getdate)
+      shortnessofbreath++;
+    }
+    percentshortnessofbreathsymptoms=(shortnessofbreath/TotalPositiveTests)*100
+    //arr.push(3, percentshortnessofbreathsymptoms);
+
+
+           //number of head_ache
+    for(var i=0; i<TotalNumberOfCovidTests; i++)
+    {
+       if(data.result.records[i].head_ache == '1'  && !choice_Date_True_False)
+       headache++
+
+      else if(data.result.records[i].head_ache == '1'  && data.result.records[i].test_date == getdate)
+      headache++;
+    }
+    percentheadachesymptoms=(headache/TotalPositiveTests)*100
+    //arr.push(4, percentheadachesymptoms);
+
+
 }
 
 
