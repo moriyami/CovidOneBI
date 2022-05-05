@@ -1,0 +1,195 @@
+{
+    "help": "https://data.gov.il/api/3/action/help_show?name=datastore_search",
+    "success": true,
+    "result": {
+        "include_total": true,
+        "limit": 10,
+        "records_format": "objects",
+        "resource_id": "d337959a-020a-4ed3-84f7-fca182292308",
+        "total_estimation_threshold": null,
+        "records": [
+            {
+                "_id": 1,
+                "test_date": "2022-03-03",
+                "cough": "0",
+                "fever": "0",
+                "sore_throat": "0",
+                "shortness_of_breath": "0",
+                "head_ache": "0",
+                "corona_result": "חיובי",
+                "age_60_and_above": "No",
+                "gender": "נקבה",
+                "test_indication": "Other"
+            },
+            {
+                "_id": 2,
+                "test_date": "2022-03-03",
+                "cough": "0",
+                "fever": "0",
+                "sore_throat": "0",
+                "shortness_of_breath": "0",
+                "head_ache": "0",
+                "corona_result": "חיובי",
+                "age_60_and_above": "No",
+                "gender": "זכר",
+                "test_indication": "Other"
+            },
+            {
+                "_id": 3,
+                "test_date": "2022-03-03",
+                "cough": "0",
+                "fever": "0",
+                "sore_throat": "0",
+                "shortness_of_breath": "0",
+                "head_ache": "0",
+                "corona_result": "חיובי",
+                "age_60_and_above": "No",
+                "gender": "זכר",
+                "test_indication": "Other"
+            },
+            {
+                "_id": 4,
+                "test_date": "2022-03-03",
+                "cough": "0",
+                "fever": "0",
+                "sore_throat": "0",
+                "shortness_of_breath": "0",
+                "head_ache": "0",
+                "corona_result": "חיובי",
+                "age_60_and_above": "No",
+                "gender": "נקבה",
+                "test_indication": "Other"
+            },
+            {
+                "_id": 5,
+                "test_date": "2022-03-03",
+                "cough": "0",
+                "fever": "0",
+                "sore_throat": "0",
+                "shortness_of_breath": "0",
+                "head_ache": "0",
+                "corona_result": "חיובי",
+                "age_60_and_above": "No",
+                "gender": "נקבה",
+                "test_indication": "Abroad"
+            },
+            {
+                "_id": 6,
+                "test_date": "2022-03-03",
+                "cough": "0",
+                "fever": "0",
+                "sore_throat": "0",
+                "shortness_of_breath": "0",
+                "head_ache": "0",
+                "corona_result": "חיובי",
+                "age_60_and_above": "No",
+                "gender": "נקבה",
+                "test_indication": "Abroad"
+            },
+            {
+                "_id": 7,
+                "test_date": "2022-03-03",
+                "cough": "0",
+                "fever": "0",
+                "sore_throat": "0",
+                "shortness_of_breath": "0",
+                "head_ache": "0",
+                "corona_result": "חיובי",
+                "age_60_and_above": "No",
+                "gender": "נקבה",
+                "test_indication": "Other"
+            },
+            {
+                "_id": 8,
+                "test_date": "2022-03-03",
+                "cough": "1",
+                "fever": "1",
+                "sore_throat": "1",
+                "shortness_of_breath": "0",
+                "head_ache": "1",
+                "corona_result": "חיובי",
+                "age_60_and_above": "No",
+                "gender": "נקבה",
+                "test_indication": "Other"
+            },
+            {
+                "_id": 9,
+                "test_date": "2022-03-03",
+                "cough": "1",
+                "fever": "1",
+                "sore_throat": "0",
+                "shortness_of_breath": "0",
+                "head_ache": "0",
+                "corona_result": "חיובי",
+                "age_60_and_above": "Yes",
+                "gender": "נקבה",
+                "test_indication": "Contact with confirmed"
+            },
+            {
+                "_id": 10,
+                "test_date": "2022-03-03",
+                "cough": "0",
+                "fever": "0",
+                "sore_throat": "0",
+                "shortness_of_breath": "0",
+                "head_ache": "0",
+                "corona_result": "חיובי",
+                "age_60_and_above": "No",
+                "gender": "זכר",
+                "test_indication": "Other"
+            }
+        ],
+        "fields": [
+            {
+                "id": "_id",
+                "type": "int"
+            },
+            {
+                "id": "test_date",
+                "type": "text"
+            },
+            {
+                "id": "cough",
+                "type": "text"
+            },
+            {
+                "id": "fever",
+                "type": "text"
+            },
+            {
+                "id": "sore_throat",
+                "type": "text"
+            },
+            {
+                "id": "shortness_of_breath",
+                "type": "text"
+            },
+            {
+                "id": "head_ache",
+                "type": "text"
+            },
+            {
+                "id": "corona_result",
+                "type": "text"
+            },
+            {
+                "id": "age_60_and_above",
+                "type": "text"
+            },
+            {
+                "id": "gender",
+                "type": "text"
+            },
+            {
+                "id": "test_indication",
+                "type": "text"
+            }
+        ],
+        "_links": {
+            "start": "/api/3/action/datastore_search?resource_id=d337959a-020a-4ed3-84f7-fca182292308&limit=10",
+            "next": "/api/3/action/datastore_search?resource_id=d337959a-020a-4ed3-84f7-fca182292308&limit=10&offset=10"
+        },
+        "total": 9147169,
+        "total_was_estimated": false
+    }
+}

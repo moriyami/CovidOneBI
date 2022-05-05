@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="covidlogo.png">
 <meta charset="utf-8" />
 <title>Covid-19</title>
 <link rel="stylesheet" href="index.css">
@@ -46,19 +47,21 @@
     </label>
 
     
-    <input type="date" id="start" name="trip-start"
+    <input type="date" id="start"  name="trip-start"
        value="2022-03-03"
-       min="2019-01-01" max="2022-03-03">
+       min="2019-01-01" max="2022-03-03" color= "blue">
     </div>
 
-<button id="DatePicker" onclick="getmydate()">Click Me!</button>
+<button id="DatePicker" onclick="getmydate()">Submit</button>
 
 
 
 <div class="row">
     <div class="column">
+        <h2>Negitive VS Positive</h2>
     <!--Pie for tested positive -->
     <div id="my-pie-chart-tested"></div>
+    
     <div id="legenda">
       <div class="entry">
         <div id="color-brown" class="entry-color"></div>
@@ -71,8 +74,8 @@
    </div>
   </div>
 
-
     <div class="column">
+        <h2> Women VS Men</h2>
         <!--Pie for men women -->
         <div id="my-pie-chart"></div>
             <div id="legenda">
@@ -88,8 +91,9 @@
 </div>
 
 
-  
+
     <div class="column">
+        <h2>Over Age 60 VS Under 60</h2>
         <!--Pie for age -->
             <div id="my-pie-chart-age"></div>
             <div id="legenda">

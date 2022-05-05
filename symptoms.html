@@ -3,65 +3,99 @@
 <head>
 <meta charset="utf-8" />
 <title>Covid-19</title>
-<link rel="stylesheet" href="symptomes.css">
+<link rel="stylesheet" href="index.css">
 <script src="symptoms.js"  charset="utf-8"></script>
 </head>
 
+
+
+<header>
+    <nav>
+        <div class="topnav" id="myTopnav">
+            <div class="brand">
+                <div id="logo" style="display: inline;">
+                    <img hight= 60px width= 60px src="covidlogo.png"alt=""/>
+                </div>
+                <div id="texts" style="display:inline; white-space:nowrap; color: red;"> 
+                    Covid-19
+                </div>
+                <a href="symptoms.html">Symtomes</a>
+                <a href="home.html" class="active">Statistics</a>
+                
+                </div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
 <body>
+
+
+    <div class="mypick">
+        <label>
+            <input type="radio" name="editList" onclick="choice_Date_True_False=false" name="fav_language" value="All"/>Show All Data  &nbsp;
+        </label>
+        <label>
+            <input type="radio" name="editList"  onclick="choice_Date_True_False=true" name="fav_language" value="Picked By Date"/>Pick Data By Date:
+        </label>
     
-    <div class="topnav" id="myTopnav">
-        <a href="home.html" class="active">Home</a>
-        <a href="symptoms.html">Symtomes</a>
-          <i class="fa fa-bars"></i>
-        </a>
+        
+        <input type="date" id="start"  name="trip-start"
+           value="2022-03-03"
+           min="2019-01-01" max="2022-03-03" color= "blue">
+        </div>
+    
+    <button id="DatePicker" onclick="getmydate()">Submit</button>
+
+
+    
+<div class="row">
+    <div class="column">
+    <div class="chart-wrap">
+        <h2 class="title">Symptomes % Chart</h2>
+        <div class="grid horizontal">
+              <div class="bar" id="cough_symptoms" data-name="Cough"></div>
+              <div class="bar" id="Fever_symptoms" data-name="Fever"></div>
+              <div class="bar" id="Sore_Throat_symptoms" data-name="Sore Throat"></div>
+              <div class="bar" id="shortness_breath_symptoms" data-name="shortness Breath"></div>
+              <div class="bar" id="Headache_symptoms" data-name="Headache"></div>
+         
+        </div>
       </div>
-
-<input type="radio" id="AllData" onclick="choice_Date_True_False=false" name="fav_language" value="All">
-<label for="AllData">All</label><br>
-<input type="radio" id="PickedByDate" onclick="choice_Date_True_False=true" name="fav_language" value="Picked By Date">
-<label for="PickedByDate">Picked By Date</label><br>
-
-
-<label for="start">Start date:</label>
-<input type="date" id="start" name="trip-start"
-       value="2022-03-03"
-       min="2019-01-01" max="2022-03-03">
-<button type="Date Picker" onclick="getmydate()">Click Me!</button>
-
-
-<p id="TotalNumberOfCovidTests"></p>
-<p id="TotalNumberOfPositiveTests"></p>
-<p id="TotalNumberOfPositiveTests_Women"></p>
-<p id="TotalNumberOfPositiveTests_Men"></p>
-
-<pre class="tab">          
-
-    
-</pre>
-<p>Cough</p>
-<div class="container">
-    <div id="cough_symptoms">Cough</div>
-  </div>
-  
-  <p>Fever</p>
-  <div class="container">
-    <div id="Fever_symptoms">Fever</div>
-  </div>
-  
-  <p>Sore Throat</p>
-  <div class="container">
-    <div id="Sore_Throat_symptoms">Sore Throat</div>
-  </div>
-  
-  <p>Shortness Of Breath</p>
-  <div class="container">
-    <div id="shortness_breath_symptoms">Shortness Of Breath</div>
   </div>
 
-  <p>Headache</p>
-  <div class="container">
-    <div id="Headache_symptoms">Headache</div>
+
+    <div class="column">
+        <div class="chart-wrap">
+        <h2>Symptomes Number</h2>
+        <h3 id="cough_symptoms_total"></h3>      
+        <h3 id="Fever_symptoms_total"></h3>        
+        <h3 id="Sore_Throat_symptoms_total"></h3>        
+        <h3 id="shortness_breath_symptoms_total"></h3>        
+        <h3 id="Headache_symptoms_total"></h3>  
+</div>
+</div>
+
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <script>// doc was loaded successfully - then run HTML CODE
         (function() {

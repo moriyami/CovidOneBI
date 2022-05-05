@@ -48,24 +48,32 @@ request.send()
 
 function setData()
 {
-    document.getElementById("TotalNumberOfCovidTests").innerHTML='Numer of total covid tests:' + '' + TotalNumberOfCovidTests;
-    document.getElementById("TotalNumberOfPositiveTests").innerHTML= 'Numer Of Sick People:'+ '' + TotalPositiveTests
-    document.getElementById("TotalNumberOfPositiveTests_Women").innerHTML= 'Numer Of Women:'+ '' + TotalPositiveTests_Women
+   
 
-    document.getElementById("cough_symptoms").style.width =  Math.trunc(percentcoughsymptoms)+"%";
-    document.getElementById("cough_symptoms").innerHTML= Math.trunc(percentcoughsymptoms)+"%"
+
+    document.getElementById("cough_symptoms").style.width =   Math.trunc(percentcoughsymptoms)+"%";
+    document.getElementById("cough_symptoms").innerHTML=  Math.trunc(percentcoughsymptoms)+"%";
+    document.getElementById("cough_symptoms_total").innerHTML=  "People who suffered From Coughing Sympton: " + coughsymptoms;
 
     document.getElementById("Fever_symptoms").style.width = Math.trunc(percentfeversymptoms)+"%";
-    document.getElementById("Fever_symptoms").innerHTML= Math.trunc(percentfeversymptoms)+"%"
+    document.getElementById("Fever_symptoms").innerHTML= Math.trunc(percentfeversymptoms)+"%";
+    document.getElementById("Fever_symptoms_total").innerHTML=  "People who suffered From Fever Sympton: " + feversymptoms;
+
 
     document.getElementById("Sore_Throat_symptoms").style.width =  Math.trunc(percentsorethroatsymptoms)+"%";
-    document.getElementById("Sore_Throat_symptoms").innerHTML= Math.trunc(percentsorethroatsymptoms)+"%"
+    document.getElementById("Sore_Throat_symptoms").innerHTML= Math.trunc(percentsorethroatsymptoms)+"%";
+    document.getElementById("Sore_Throat_symptoms_total").innerHTML=  "People who suffered From Sore Throat Sympton: " + sorethroat;
+
 
     document.getElementById("shortness_breath_symptoms").style.width =  Math.trunc(percentshortnessofbreathsymptoms)+"%";
-    document.getElementById("shortness_breath_symptoms").innerHTML= Math.trunc(percentshortnessofbreathsymptoms)+"%"
+    document.getElementById("shortness_breath_symptoms").innerHTML= Math.trunc(percentshortnessofbreathsymptoms)+"%";
+    document.getElementById("shortness_breath_symptoms_total").innerHTML=  "People who suffered From Shortness Breath Sympton: " + shortnessofbreath;
+
 
     document.getElementById("Headache_symptoms").style.width =  Math.trunc(percentheadachesymptoms)+"%";
-    document.getElementById("Headache_symptoms").innerHTML= Math.trunc(percentheadachesymptoms)+"%"
+    document.getElementById("Headache_symptoms").innerHTML= Math.trunc(percentheadachesymptoms)+"%";
+    document.getElementById("Headache_symptoms_total").innerHTML=  "People who suffered From Headache Sympton: " + headache;
+
 
 }
    
@@ -116,44 +124,6 @@ function caldata()
     else if(data.result.records[i].corona_result == '\u05D7\u05D9\u05D5\u05D1\u05D9' && data.result.records[i].test_date == getdate)
     TotalPositiveTests++;
      }
-     percentpossitive= (TotalPositiveTests/TotalNumberOfCovidTests)*100
-
-
-  //NUMBER OF WOMEN 
- 
-  for(var i=0; i<TotalNumberOfCovidTests; i++)
-  {
-      if(data.result.records[i].corona_result == '\u05D7\u05D9\u05D5\u05D1\u05D9' && data.result.records[i].gender == '\u05E0\u05E7\u05D1\u05D4' && !choice_Date_True_False)
-          TotalPositiveTests_Women ++
-
-          else if(data.result.records[i].corona_result == '\u05D7\u05D9\u05D5\u05D1\u05D9' && data.result.records[i].gender == '\u05E0\u05E7\u05D1\u05D4' && data.result.records[i].test_date == getdate)
-          TotalPositiveTests_Women++;
-  }
-  
-  //NUMBER OF MEN 
-  for(var i=0; i<TotalNumberOfCovidTests; i++)
-  {
-
-    if(data.result.records[i].corona_result == '\u05D7\u05D9\u05D5\u05D1\u05D9' && data.result.records[i].gender == '\u05D6\u05DB\u05E8' && !choice_Date_True_False)
-    TotalPositiveTests_Men ++
-
-    else if(data.result.records[i].corona_result == '\u05D7\u05D9\u05D5\u05D1\u05D9' && data.result.records[i].gender == '\u05D6\u05DB\u05E8' && data.result.records[i].test_date == getdate)
-    TotalPositiveTests_Men++;
-  }
-
-   percentwomen= (TotalPositiveTests_Women/TotalPositiveTests)*100
-
-//number of age ablove 60
-   for(var i=0; i<TotalNumberOfCovidTests; i++)
-   {
-         if(data.result.records[i].age_60_and_above == 'Yes'  && !choice_Date_True_False)
-         TotalAboveAge60++
- 
-        else if(data.result.records[i].age_60_and_above == 'Yes'  && data.result.records[i].test_date == getdate)
-           TotalAboveAge60++;
-   }
-   percentAboveAge60=(TotalAboveAge60/TotalPositiveTests)*100
-
 
 
    //number of age each symtop
@@ -168,7 +138,6 @@ function caldata()
         coughsymptoms++;
    }
    percentcoughsymptoms=(coughsymptoms/TotalPositiveTests)*100
-   arr.push(0, percentcoughsymptoms);
 
 
       //number of fever

@@ -9,6 +9,7 @@ var data=null;
 var getdate = null;
 var choice_Date_True_False = false;
 var TotalAboveAge60=0;
+var TotalUnderAge60=0;
 var percentpossitive=0;
 var coughsymptoms=0;
 var percentcoughsymptoms=0;
@@ -22,6 +23,9 @@ var headache=0;
 var percentheadachesymptoms=0;
 var arr = [];
 var sortArr =[];
+var TotalNegitiveTests=0;
+
+
 
 
 //טעינה של נתונים הראשונית
@@ -48,25 +52,31 @@ request.send()
 
 function setData()
 {
-    document.getElementById("TotalNumberOfCovidTests").innerHTML='Numer of total covid tests:' + '' + TotalNumberOfCovidTests;
-    document.getElementById("TotalNumberOfPositiveTests").innerHTML= 'Numer Of Sick People:'+ '' + TotalPositiveTests
-    document.getElementById("TotalNumberOfPositiveTests_Women").innerHTML= 'Numer Of Women:'+ '' + TotalPositiveTests_Women
-    document.getElementById("TotalNumberOfPositiveTests_Men").innerHTML= 'Numer Of Men:'+ '' + TotalPositiveTests_Men
-    document.getElementById("my-pie-chart").style.background = "conic-gradient(brown 0.00% " + percentwomen + "%, black " +percentwomen + "% 100%)";
-    document.getElementById("my-pie-chart-age").style.background = "conic-gradient(brown 0.00% " + percentAboveAge60 + "%, black " +percentAboveAge60 + "% 100%)";
-    document.getElementById("my-pie-chart-tested").style.background = "conic-gradient(brown 0.00% " + percentpossitive + "%, black " +percentpossitive + "% 100%)";
+    document.getElementById("TotalNumberOfCovidTests").innerHTML='Negitive:' + '' + TotalNegitiveTests;
+    document.getElementById("TotalNumberOfPositiveTests").innerHTML= 'Positive:'+ '' + TotalPositiveTests
+    document.getElementById("my-pie-chart-tested").style.background = "conic-gradient(rgb(239, 132, 142) 0.00% " + percentpossitive + "%, rgb(149, 209, 222) " +percentpossitive + "% 100%)";
+
+    document.getElementById("TotalNumberOfPositiveTests_Women").innerHTML= 'Positive Women:'+ '' + TotalPositiveTests_Women
+    document.getElementById("TotalNumberOfPositiveTests_Men").innerHTML= 'Positive Men:'+ '' + TotalPositiveTests_Men
+    document.getElementById("my-pie-chart").style.background = "conic-gradient(rgb(239, 132, 142) 0.00% " + percentwomen + "%, rgb(149, 209, 222) " +percentwomen + "% 100%)";
+  
+    document.getElementById("TotalAboveAge_60").innerHTML= 'Positive Above Age 60:'+ '  ' + TotalAboveAge60
+    document.getElementById("TotalUnderAge_60").innerHTML= 'Positive Under Age 60:'+ '  ' + TotalUnderAge60
+    document.getElementById("my-pie-chart-age").style.background = "conic-gradient(rgb(239, 132, 142) 0.00% " + percentAboveAge60 + "%, rgb(149, 209, 222) " +percentAboveAge60 + "% 100%)";
+    
 }
    
       
 function caldata()
 {
-
+     TotalNegitiveTests=0;
      TotalNumberOfCovidTests=0;
      TotalPositiveTests =0;
      TotalPositiveTests_Women =0;
      TotalPositiveTests_Men =0;
      percentwomen =0;
      TotalAboveAge60 =0;
+     TotalUnderAge60=0;
      percentpossitive=0;
      percentAboveAge60=0;
      coughsymptoms=0;
@@ -105,6 +115,7 @@ function caldata()
      }
      percentpossitive= (TotalPositiveTests/TotalNumberOfCovidTests)*100
 
+     TotalNegitiveTests=TotalNumberOfCovidTests-TotalPositiveTests
 
   //NUMBER OF WOMEN 
  
@@ -113,32 +124,25 @@ function caldata()
       if(data.result.records[i].corona_result == '\u05D7\u05D9\u05D5\u05D1\u05D9' && data.result.records[i].gender == '\u05E0\u05E7\u05D1\u05D4' && !choice_Date_True_False)
           TotalPositiveTests_Women ++
 
-          else if(data.result.records[i].corona_result == '\u05D7\u05D9\u05D5\u05D1\u05D9' && data.result.records[i].gender == '\u05E0\u05E7\u05D1\u05D4' && data.result.records[i].test_date == getdate)
+      else if(data.result.records[i].corona_result == '\u05D7\u05D9\u05D5\u05D1\u05D9' && data.result.records[i].gender == '\u05E0\u05E7\u05D1\u05D4' && data.result.records[i].test_date == getdate)
           TotalPositiveTests_Women++;
   }
-  
-  //NUMBER OF MEN 
-  for(var i=0; i<TotalNumberOfCovidTests; i++)
-  {
-
-    if(data.result.records[i].corona_result == '\u05D7\u05D9\u05D5\u05D1\u05D9' && data.result.records[i].gender == '\u05D6\u05DB\u05E8' && !choice_Date_True_False)
-    TotalPositiveTests_Men ++
-
-    else if(data.result.records[i].corona_result == '\u05D7\u05D9\u05D5\u05D1\u05D9' && data.result.records[i].gender == '\u05D6\u05DB\u05E8' && data.result.records[i].test_date == getdate)
-    TotalPositiveTests_Men++;
-  }
-
-   percentwomen= (TotalPositiveTests_Women/TotalPositiveTests)*100
+//Number of Men
+  TotalPositiveTests_Men=TotalPositiveTests-TotalPositiveTests_Women
+  percentwomen= (TotalPositiveTests_Women/TotalPositiveTests)*100
 
 //number of age ablove 60
    for(var i=0; i<TotalNumberOfCovidTests; i++)
    {
-         if(data.result.records[i].age_60_and_above == 'Yes'  && !choice_Date_True_False)
+         if(data.result.records[i].corona_result == '\u05D7\u05D9\u05D5\u05D1\u05D9' && data.result.records[i].age_60_and_above == 'Yes'  && !choice_Date_True_False)
          TotalAboveAge60++
  
-        else if(data.result.records[i].age_60_and_above == 'Yes'  && data.result.records[i].test_date == getdate)
+        else if(data.result.records[i].corona_result == '\u05D7\u05D9\u05D5\u05D1\u05D9' && data.result.records[i].age_60_and_above == 'Yes'  && data.result.records[i].test_date == getdate)
            TotalAboveAge60++;
    }
+      //number under age ablove 60
+
+   TotalUnderAge60=TotalPositiveTests-TotalAboveAge60
    percentAboveAge60=(TotalAboveAge60/TotalPositiveTests)*100
    
 }
@@ -158,12 +162,3 @@ function getmydate()
 
 }
 
-/*
-function getsymtoms()
-{
-
-    var sortdedarr =[];
-    sortdedarr = arr.sort(); 
-    document.getElementById("my-pie-chart-symtomps").style.background = "conic-gradient(brown 0.00% "+ percentfeversymptoms + "%, black " +percentfeversymptoms + "% "+ percentcoughsymptoms + "%, blue " +percentcoughsymptoms + "% " +percentsorethroatsymptoms + "%, pink " +percentsorethroatsymptoms + "% " +percentshortnessofbreathsymptoms + "%, orange " +percentshortnessofbreathsymptoms + "% " +percentheadachesymptoms+"%)";
-
-}*/
