@@ -1,40 +1,52 @@
- /* Add a black background color to the top navigation */
+
+body {
+    background-color: rgb(246, 220, 220);
+  }
+
+  
+  h1 {
+    color: navy;
+    margin-left: 20px;
+  }
+
+
+  /* Add a black background color to the top navigation */
  .topnav {
-    overflow: hidden;
+    overflow:hidden;
+    background-color: rgb(224, 173, 173);
   }
   
   /* Style the links inside the navigation bar */
   .topnav a {
-    float: left;
-    display: block;
-    color: #38077c;
+    float: right;
+    color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 24px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 15px;
   }
   
   /* Change the color of links on hover */
   .topnav a:hover {
     background-color: #ddd;
-    color: black;
+    color: red;
   }
   
   /* Add an active class to highlight the current page */
   .topnav a.active {
-    background-color: #26709b;
+    background-color: #cc4158;
     color: white;
   }
   
-  /* Hide the link that should open and close the topnav on small screens */
-  .topnav .icon {
-    display: none;
-  }
+  
+
 
   
 
+
+
   
-* {box-sizing:border-box}
+
 
 /* Container for skill bars */
 .container {
