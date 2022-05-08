@@ -3,7 +3,6 @@
 CovidOneBI is a API Website
 Calculates data from https://data.gov.il/dataset/covid-19/resource/d337959a-020a-4ed3-84f7-fca182292308.
 
-
 *All pages open showing ALL DATA avalible, user can pick a date he would like to see the data for, and has the option to go back and see all data once again. 
 
 
@@ -25,4 +24,7 @@ Represents how many people suffered from each symptome.
 Bar Chat: 
 Represents the % of each symptomes, that way we can see cleary what is the symptome people suffered from most
 
+
+This project has is responsive
+also has a drop down responsive menu.
 
