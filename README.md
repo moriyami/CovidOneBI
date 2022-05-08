@@ -10,7 +10,7 @@ Calculates data from https://data.gov.il/dataset/covid-19/resource/d337959a-020a
 HOME PAGE: 
 Three pies showing:
 
-#What is the % that where tested positve or negitive from over all tests. 
+#What is the % that were tested positve or negitive from over all tests. 
 #What is the % of positive tests are men, women.
 #What is the  % of positive tests are people over or under the age of 60. .
 
