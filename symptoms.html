@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+ <link rel="icon" href="covidlogo.png">
 <meta charset="utf-8" />
 <title>Covid-19</title>
 <link rel="stylesheet" href="index.css">
 <script src="symptoms.js"  charset="utf-8"></script>
 </head>
-
 
 
 <header>
@@ -19,84 +19,95 @@
                 <div id="texts" style="display:inline; white-space:nowrap; color: red;"> 
                     Covid-19
                 </div>
-                <a href="symptoms.html">Symtomes</a>
-                <a href="home.html" class="active">Statistics</a>
-                
+                <label for="drop" class="toggle">Menu</label>
+                <input type="checkbox" id="drop" />
+                    <ul class="menu">
+                        <li><a href="home.html" class="active">Statistics</a></li>
+                        <li><a href="symptoms.html">Symptomes</a></li>
+                    </ul>
+
                 </div>
 
             </div>
         </div>
-
-        
     </nav>
-
 </header>
 
 
 <body>
-
-
+    <div class="headofpage">
+    <h1>Records Of Covid-19</h1>
+    <h2>Numbers Of Records From Positive Tests Only</h2>
+    </div>
+ <!--RADIO CHOICE-->
     <div class="mypick">
-        <label>
-            <input type="radio" name="editList" onclick="choice_Date_True_False=false" name="fav_language" value="All"/>Show All Data  &nbsp;
-        </label>
-        <label>
-            <input type="radio" name="editList"  onclick="choice_Date_True_False=true" name="fav_language" value="Picked By Date"/>Pick Data By Date:
-        </label>
-    
-        
-        <input type="date" id="start"  name="trip-start"
-           value="2022-03-03"
-           min="2019-01-01" max="2022-03-03" color= "blue">
-        </div>
-    
-    <button id="DatePicker" onclick="getmydate()">Submit</button>
+    <label>
+        <input type="radio" name="editList" onclick="choice_Date_True_False=false" name="fav_language" value="All"/>Show All Data  &nbsp;
+    </label>
+    <label>
+        <input type="radio" name="editList"  onclick="choice_Date_True_False=true" name="fav_language" value="Picked By Date"/>Pick Data By Date:
+    </label>
 
-
-    
-<div class="row">
-    <div class="column">
-    <div class="chart-wrap">
-        <h2 class="title">Symptomes % Chart</h2>
-        <div class="grid horizontal">
-              <div class="bar" id="cough_symptoms" data-name="Cough"></div>
-              <div class="bar" id="Fever_symptoms" data-name="Fever"></div>
-              <div class="bar" id="Sore_Throat_symptoms" data-name="Sore Throat"></div>
-              <div class="bar" id="shortness_breath_symptoms" data-name="shortness Breath"></div>
-              <div class="bar" id="Headache_symptoms" data-name="Headache"></div>
-         
-        </div>
-      </div>
-  </div>
-
-
-    <div class="column">
-        <div class="chart-wrap">
-        <h2>Symptomes Number</h2>
-        <h3 id="cough_symptoms_total"></h3>      
-        <h3 id="Fever_symptoms_total"></h3>        
-        <h3 id="Sore_Throat_symptoms_total"></h3>        
-        <h3 id="shortness_breath_symptoms_total"></h3>        
-        <h3 id="Headache_symptoms_total"></h3>  
-</div>
+<!--CALENDER DATE PICK-->
+    <input type="date" id="start"  name="trip-start"
+       value="2022-03-03"
+       min="2019-01-01" max="2022-03-03" color= "blue">
+    </div>
+<!--WHEN PRESSED GENERATE GETMYDATE() FUNCTUON-->
+<div class="text-center">
+    <button id="DatePicker" onclick="getmydate()" >Submit</button>
 </div>
 
-  </div>
+
+<!--DATA TABLE FOR SYMPROMES-->
+<div class="text-center">
+<table>
+    <h2 class="title">Number Of Symptomes Reported Table</h2>
+    <tr>
+      <th><h3>Symptomes:</h3></th>
+      <th><h3>Number Of People Who Reported Having Symptome:</h3></th>
+     
+    </tr>
+    <tr>
+      <td><h4>Cough</h4></td>
+      <td><h4 id="cough_symptoms_total"></h4> </td>
+    </tr>
+    <tr>
+        <td><h4>Fever</h4></td>
+        <td><h4 id="Fever_symptoms_total"></h4></td>
+    </tr>
+    <tr>
+        <td><h4>Sore Throat</h4></td>
+        <td><h4 id="Sore_Throat_symptoms_total"></h4></td>
+    </tr>
+    <tr>
+        <td><h4>Shortness Of Breath</h4></td>
+        <td><h4 id="shortness_breath_symptoms_total"></h4></td>
+    </tr>
+    <tr>
+        <td><h4>Headache</h4></td>
+        <td><h4 id="Headache_symptoms_total"></h4></td>
+    </tr>
+  </table>
+</div>
+   
+<!--BAR CHART TABLE-->
+  
+  <div class="chart-wrap">
+            <h2 class="title">Symptomes Percentage Bar Chart</h2>
+            <div class="grid horizontal">
+                <div class="bar" id="cough_symptoms" data-name="Cough"></div>
+                <div class="bar" id="Fever_symptoms" data-name="Fever"></div>
+                <div class="bar" id="Sore_Throat_symptoms" data-name="Sore Throat"></div>
+                <div class="bar" id="shortness_breath_symptoms" data-name="shortness Breath"></div>
+                <div class="bar" id="Headache_symptoms" data-name="Headache"></div>
+            </div>
+   </div>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+</div>
     <script>// doc was loaded successfully - then run HTML CODE
         (function() {
             LoadData() 

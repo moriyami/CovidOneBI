@@ -11,24 +11,12 @@ var choice_Date_True_False = false;
 var TotalAboveAge60=0;
 var TotalUnderAge60=0;
 var percentpossitive=0;
-var coughsymptoms=0;
-var percentcoughsymptoms=0;
-var feversymptoms=0;
-var percentfeversymptoms=0;
-var sorethroat=0;
-var percentsorethroatsymptoms =0;
-var shortnessofbreath=0;
-var percentshortnessofbreathsymptoms=0;
-var headache=0;
-var percentheadachesymptoms=0;
-var arr = [];
-var sortArr =[];
 var TotalNegitiveTests=0;
 
 
 
 
-//טעינה של נתונים הראשונית
+//API DATA LOAD 
 function LoadData(){
 var request = new XMLHttpRequest()
 request.open('GET', 'https://data.gov.il/api/3/action/datastore_search?resource_id=d337959a-020a-4ed3-84f7-fca182292308&limit=150000', true)
@@ -66,7 +54,7 @@ function setData()
     
 }
    
-      
+    //This function calculates the number of people for eah wanted data, and also calculates the % 
 function caldata()
 {
      TotalNegitiveTests=0;
@@ -79,24 +67,16 @@ function caldata()
      TotalUnderAge60=0;
      percentpossitive=0;
      percentAboveAge60=0;
-     coughsymptoms=0;
-     percentcoughsymptoms=0;
-     feversymptoms=0;
-     percentfeversymptoms=0;
-     sorethroat=0;
-     percentsorethroatsymptoms=0;
-     shortnessofbreath=0;
-     percentshortnessofbreathsymptoms=0;
-     headache=0;
-     percentheadachesymptoms=0;
-
-
+ 
+//This function calculate the over all number of people that were tested. 
+//If user didnt submit date then retuen length of all recordes 
     if(choice_Date_True_False == false)
     {
     TotalNumberOfCovidTests=  data.result.records.length;
     }
     else
     { console.log("selected date"+ getdate) 
+    //if date was submited then get recordes of olny wanted date
         for(var i=0; i<data.result.records.length; i++)
         {   
              if(data.result.records[i].test_date == getdate)
@@ -105,7 +85,7 @@ function caldata()
     }
 
 
-    //NUMER OF SICK PEOPLE
+    //calculate the number of positive tests
      for(var i=0; i<TotalNumberOfCovidTests; i++)
      {
         if(data.result.records[i].corona_result == '\u05D7\u05D9\u05D5\u05D1\u05D9' && !choice_Date_True_False)
@@ -113,12 +93,14 @@ function caldata()
     else if(data.result.records[i].corona_result == '\u05D7\u05D9\u05D5\u05D1\u05D9' && data.result.records[i].test_date == getdate)
     TotalPositiveTests++;
      }
+     //% of positive test from over all tests 
      percentpossitive= (TotalPositiveTests/TotalNumberOfCovidTests)*100
 
-     TotalNegitiveTests=TotalNumberOfCovidTests-TotalPositiveTests
+    //calculate the number of negitive tests
+    TotalNegitiveTests=TotalNumberOfCovidTests-TotalPositiveTests
 
-  //NUMBER OF WOMEN 
- 
+
+ //Number of women vs men from total tests that where tested positive 
   for(var i=0; i<TotalNumberOfCovidTests; i++)
   {
       if(data.result.records[i].corona_result == '\u05D7\u05D9\u05D5\u05D1\u05D9' && data.result.records[i].gender == '\u05E0\u05E7\u05D1\u05D4' && !choice_Date_True_False)
@@ -131,7 +113,7 @@ function caldata()
   TotalPositiveTests_Men=TotalPositiveTests-TotalPositiveTests_Women
   percentwomen= (TotalPositiveTests_Women/TotalPositiveTests)*100
 
-//number of age ablove 60
+//number of age ablove 60 from total tests that where tested positive 
    for(var i=0; i<TotalNumberOfCovidTests; i++)
    {
          if(data.result.records[i].corona_result == '\u05D7\u05D9\u05D5\u05D1\u05D9' && data.result.records[i].age_60_and_above == 'Yes'  && !choice_Date_True_False)
@@ -140,7 +122,7 @@ function caldata()
         else if(data.result.records[i].corona_result == '\u05D7\u05D9\u05D5\u05D1\u05D9' && data.result.records[i].age_60_and_above == 'Yes'  && data.result.records[i].test_date == getdate)
            TotalAboveAge60++;
    }
-      //number under age ablove 60
+      //number under age ablove 60 from total tests that where tested positive 
 
    TotalUnderAge60=TotalPositiveTests-TotalAboveAge60
    percentAboveAge60=(TotalAboveAge60/TotalPositiveTests)*100
@@ -149,16 +131,13 @@ function caldata()
 
 
 
-
-
 function getmydate()
 {
+    //Users Date Input
     getdate = document.getElementById('start').value;
     caldata();
     setData();
-
-    
-
+   
 
 }
 

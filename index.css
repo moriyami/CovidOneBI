@@ -5,28 +5,141 @@ body {
 
   
   h1 {
-    color: navy;
-    margin-left: 20px;
+    color: #c93f60;
+    text-align:center;
   }
 
 
   h2{
-      margin-left:25px;
-      color:#cc4158
-  }
-
-
+      color:#cc4158;  }
   h3{
       width: 600px;
-     
   }
-  /* Add a black background color to the top navigation */
+
+ 
+  .headofpage{
+      text-align: center;
+  }
+  .pierows
+  {
+      text-align: center;
+  }
+
+  /*Wont Disply the picker opption*/
+  .toggle,
+  [id^="drop"] {
+    display: none;
+  }
+  
+  /* Giving a background-color to the nav container. */
+  nav {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(224, 173, 173);
+  }
+  
+  
+  /* Since we'll have the "ul li" "float:left"
+   * we need to add a clear after the container. */
+  
+  nav:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Removing padding, margin and "list-style" from the "ul",
+   * and adding "position:reltive" */
+  nav ul {
+    float: right;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+  }
+  
+  /* Positioning the navigation items inline */
+  nav ul li {
+    margin: 0px;
+    display: inline-block;
+    background-color: rgb(224, 173, 173);
+  }
+  
+  /* Styling the links */
+  nav a {
+    display: block;
+    padding: 14px 20px;
+    color: #fff;
+    font-size: 17px;
+    text-decoration: none;
+  }
+  
+  nav ul li ul li:hover {
+    background: #cc4158;
+  }
+  
+  /* Background color change on Hover */
+  nav a:hover {
+    background-color: #bacddd;
+  }
+  
+
+  
+  /* Media Queries
+  --------------------------------------------- */
+  
+  @media all and (max-width: 1000px) {
+    #logo {
+      display: block;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+      float: none;
+    }
+    .pierow
+    {
+      align-items: center;
+    }
+    nav {
+      margin: 0;
+    }
+    /* Hide the navigation menu by default */
+    /* Also hide the  */
+    .toggle,
+    .menu {
+      display: none;
+    }
+    /* Stylinf the toggle lable */
+    .toggle {
+      display: block;
+      background-color: #cc4158;
+      padding: 14px 20px;
+      color: #fff;
+      font-size: 17px;
+      text-decoration: none;
+      border: none;
+    }
+    .toggle:hover {
+      background-color: #d56060;
+    }
+    /* Display Dropdown when clicked on Parent Lable */
+    [id^="drop"]:checked + ul {
+      display: block;
+    }
+    /* Change menu item's width to 100% */
+    nav ul li {
+      display: block;
+      width: 100%;
+    }
+ 
+  }
+  
+
  .topnav {
     overflow:hidden;
     background-color: rgb(224, 173, 173);
   }
   
-  /* Style the links inside the navigation bar */
   .topnav a {
     float: right;
     color: white;
@@ -35,33 +148,26 @@ body {
     text-decoration: none;
     font-size: 20px;
   }
-  
+
   /* Change the color of links on hover */
   .topnav a:hover {
     background-color: #cc4158;
     color: white;
   }
-  
-  /* Add an active class to highlight the current page 
-  .topnav a.active {
-    background-color: #cc4158;
-    color: white;
-  }*/
-  
-  
 
-  /*new bar chart*/
-
-
-
+  /*bar chart*/
   .chart-wrap {
-      padding: 40px;
-    /*margin-left: 420px;*/
+    padding-bottom: 150px;
+    margin-left: 500px;
     width: 550px;
     height: 300px;
     font-family: sans-serif;
-  }
- 
+
+}
+.title{
+  text-align: center;
+  padding: 30px;
+}
   .grid {
     width: 100%;
     height: 100%;
@@ -116,18 +222,11 @@ body {
   }
 
   
-  #cough_symptoms { background-color: #04AA6D;} /* Green */
-  #Fever_symptoms { background-color: #2196F3;} /* Blue */
-  #Sore_Throat_symptoms { background-color: #f44336;} /* Red */
-  #shortness_breath_symptoms { background-color: #808080;} /* Dark Grey */
+  #cough_symptoms { background-color: #16a26f;} /* Green */
+  #Fever_symptoms { background-color: #2787d4;} /* Blue */
+  #Sore_Throat_symptoms { background-color: #da3e33;} /* Red */
+  #shortness_breath_symptoms { background-color: #eee34c;} /* Dark Grey */
   #Headache_symptoms { background-color: #9d37a4;} /* Dark Grey */
-
-
-  
-
-
-
-
 
 /* Container for  bars */
 .container {
@@ -136,23 +235,16 @@ body {
     height: 8%
   }
   
-
-  
-
-
 .mypick{
     color: #cc4158;;
     padding: 30px;
     text-align: center;
     font-size: large;
     font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
-
-
 }
-#DatePicker{
 
-    margin-left: 670px;
-    background: #cc4158;
+#DatePicker{
+     background: #cc4158;
       border-radius: 999px;
       box-shadow: #cc4158 0 10px 20px -10px;
       box-sizing: border-box;
@@ -165,80 +257,82 @@ body {
       opacity: 1;
       outline: 0 solid transparent;
       padding: 8px 18px;
-      user-select: none;
-      -webkit-user-select: none;
       touch-action: manipulation;
       width: fit-content;
-      word-break: break-word;
       border: 0;
     }
 
+    .text-center {
+      text-align: center;
+    }
 
-   /* Three image containers (use 25% for four, and 50% for two, etc) */
+
+   /* Three image containers */
     .column {
       float: left;
-      width: 40.33%;
+      width: 20%;
       padding: 50px;
-    }
-    
-    /* Clear floats after image containers */
-    .row::after {
-      content: "";
-      clear: both;
-      display: table;
-    }
-
-    .row {
-        display: flex;
-        padding: 20px;
-        margin-left: 20px;
-
-      }
-    
+      margin-left: 80px;
       
-      .column {
-        flex: 33.33%;
-        padding: 55px;
-      }
+    }
+    
+    .column1{
+        float: left;
+        width: 50%;
+        padding: 50px;
+        margin-left: 180px;
+
+    }
 
 
-      @media screen and (max-width: 500px) {
+
+      @media all and (max-width: 1000px) {
         .column {
           width: 100%;
         }
+    
       }
-
-
-
-
-  #my-pie-chart-tested{
-    border-radius: 50%;
-      width: 200px;
-      height: 200px;
-      padding: 30px;
-
-  }
-
-  #my-pie-chart{
-    border-radius: 50%;
-      width: 200px;
-      height: 200px;
-      padding: 30px;
-
-  }
-
-
-  #my-pie-chart-age{
-    border-radius: 50%;
-      width: 200px;
-      height: 200px;
-      padding: 30px;
-
-  }
 
     
 
+
+  /*Pie for negitive vs positive */
+  #my-pie-chart-tested{
+    background-image: url(image.png);
+    background-repeat:no-repeat	;
+    background-position:center;
+    border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      padding: 30px;
+
+  }
   
+  
+  /*Pie for men vs women */
+  #my-pie-chart{
+    background-image: url(image.png);
+    background-repeat:no-repeat	;
+    background-position:center;
+    border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      padding: 30px;
+
+  }
+
+  /*Pie for older vs under age 60 */
+  #my-pie-chart-age{
+    background-image: url(image.png);
+    background-repeat:no-repeat	;
+    background-position:center;
+    border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      padding: 30px;
+
+  }
+
   #legenda{
     width: 300px;
     height: 70px;
@@ -264,14 +358,19 @@ body {
   }
   
 
-  
-/*ddate picker 
-label {
-    display: block;
-    font: 1rem 'Fira Sans', sans-serif;
-}
+/*Table for page of sympotomes*/
 
-input,
-label {
-    margin: .4rem 0;
-}*/
+  table {
+    font-family: arial, sans-serif;
+    margin-left: 100px;
+    padding: 20px;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }

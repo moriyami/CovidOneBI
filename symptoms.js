@@ -1,15 +1,9 @@
 var TotalNumberOfCovidTests=0;
 var TotalPositiveTests =0;
-var TotalPositiveTests_Women =0;
-var TotalPositiveTests_Men =0;
-var percentwomen =0;
-var percentAboveAge60=0
 var PickedDate='';
 var data=null;
 var getdate = null;
 var choice_Date_True_False = false;
-var TotalAboveAge60=0;
-var percentpossitive=0;
 var coughsymptoms=0;
 var percentcoughsymptoms=0;
 var feversymptoms=0;
@@ -20,8 +14,7 @@ var shortnessofbreath=0;
 var percentshortnessofbreathsymptoms=0;
 var headache=0;
 var percentheadachesymptoms=0;
-var arr = [];
-var sortArr =[];
+
 
 
 //טעינה של נתונים הראשונית
@@ -53,26 +46,26 @@ function setData()
 
     document.getElementById("cough_symptoms").style.width =   Math.trunc(percentcoughsymptoms)+"%";
     document.getElementById("cough_symptoms").innerHTML=  Math.trunc(percentcoughsymptoms)+"%";
-    document.getElementById("cough_symptoms_total").innerHTML=  "People who suffered From Coughing Sympton: " + coughsymptoms;
+    document.getElementById("cough_symptoms_total").innerHTML=  coughsymptoms;
 
     document.getElementById("Fever_symptoms").style.width = Math.trunc(percentfeversymptoms)+"%";
     document.getElementById("Fever_symptoms").innerHTML= Math.trunc(percentfeversymptoms)+"%";
-    document.getElementById("Fever_symptoms_total").innerHTML=  "People who suffered From Fever Sympton: " + feversymptoms;
+    document.getElementById("Fever_symptoms_total").innerHTML=   feversymptoms;
 
 
     document.getElementById("Sore_Throat_symptoms").style.width =  Math.trunc(percentsorethroatsymptoms)+"%";
     document.getElementById("Sore_Throat_symptoms").innerHTML= Math.trunc(percentsorethroatsymptoms)+"%";
-    document.getElementById("Sore_Throat_symptoms_total").innerHTML=  "People who suffered From Sore Throat Sympton: " + sorethroat;
+    document.getElementById("Sore_Throat_symptoms_total").innerHTML=   sorethroat;
 
 
     document.getElementById("shortness_breath_symptoms").style.width =  Math.trunc(percentshortnessofbreathsymptoms)+"%";
     document.getElementById("shortness_breath_symptoms").innerHTML= Math.trunc(percentshortnessofbreathsymptoms)+"%";
-    document.getElementById("shortness_breath_symptoms_total").innerHTML=  "People who suffered From Shortness Breath Sympton: " + shortnessofbreath;
+    document.getElementById("shortness_breath_symptoms_total").innerHTML=  shortnessofbreath;
 
 
     document.getElementById("Headache_symptoms").style.width =  Math.trunc(percentheadachesymptoms)+"%";
     document.getElementById("Headache_symptoms").innerHTML= Math.trunc(percentheadachesymptoms)+"%";
-    document.getElementById("Headache_symptoms_total").innerHTML=  "People who suffered From Headache Sympton: " + headache;
+    document.getElementById("Headache_symptoms_total").innerHTML=   headache;
 
 
 }
@@ -83,10 +76,6 @@ function caldata()
 
      TotalNumberOfCovidTests=0;
      TotalPositiveTests =0;
-     TotalPositiveTests_Women =0;
-     TotalPositiveTests_Men =0;
-     percentwomen =0;
-     TotalAboveAge60 =0;
      percentpossitive=0;
      percentAboveAge60=0;
      coughsymptoms=0;
@@ -150,7 +139,6 @@ function caldata()
         feversymptoms++;
    }
    percentfeversymptoms=(feversymptoms/TotalPositiveTests)*100
-   //arr.push(1, percentfeversymptoms);
 
  //number of sorethroat
     for(var i=0; i<TotalNumberOfCovidTests; i++)
@@ -162,7 +150,6 @@ function caldata()
       sorethroat++;
     }
     percentsorethroatsymptoms=(sorethroat/TotalPositiveTests)*100
-    //arr.push(2, percentsorethroatsymptoms);
 
          //number of shortness_of_breath
     for(var i=0; i<TotalNumberOfCovidTests; i++)
@@ -187,32 +174,18 @@ function caldata()
       headache++;
     }
     percentheadachesymptoms=(headache/TotalPositiveTests)*100
-    //arr.push(4, percentheadachesymptoms);
 
 
 }
 
 
-
-
-
 function getmydate()
+
 {
+    
     getdate = document.getElementById('start').value;
     caldata();
     setData();
 
-    
-
-
 }
 
-/*
-function getsymtoms()
-{
-
-    var sortdedarr =[];
-    sortdedarr = arr.sort(); 
-    document.getElementById("my-pie-chart-symtomps").style.background = "conic-gradient(brown 0.00% "+ percentfeversymptoms + "%, black " +percentfeversymptoms + "% "+ percentcoughsymptoms + "%, blue " +percentcoughsymptoms + "% " +percentsorethroatsymptoms + "%, pink " +percentsorethroatsymptoms + "% " +percentshortnessofbreathsymptoms + "%, orange " +percentshortnessofbreathsymptoms + "% " +percentheadachesymptoms+"%)";
-
-}*/

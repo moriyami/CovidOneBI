@@ -8,9 +8,6 @@
 <script src="index.js"  charset="utf-8"></script>
 </head>
 
-
-
-
 <header>
     <nav>
         <div class="topnav" id="myTopnav">
@@ -21,23 +18,27 @@
                 <div id="texts" style="display:inline; white-space:nowrap; color: red;"> 
                     Covid-19
                 </div>
-                <a href="symptoms.html">Symtomes</a>
-                <a href="home.html" class="active">Statistics</a>
-                
+                <label for="drop" class="toggle">Menu</label>
+                <input type="checkbox" id="drop" />
+                    <ul class="menu">
+                        <li><a href="home.html" class="active">Statistics</a></li>
+                        <li><a href="symptoms.html">Symptomes</a></li>
+                    </ul>
+
                 </div>
 
             </div>
         </div>
-
-        
     </nav>
-
 </header>
 
 
 <body>
-   
- 
+    <div class="headofpage">
+    <h1>Records Of Covid-19</h1>
+    <h2>Numbers Of Records From Positive Tests Only</h2>
+    </div>
+ <!--RADIO CHOICE-->
     <div class="mypick">
     <label>
         <input type="radio" name="editList" onclick="choice_Date_True_False=false" name="fav_language" value="All"/>Show All Data  &nbsp;
@@ -46,22 +47,21 @@
         <input type="radio" name="editList"  onclick="choice_Date_True_False=true" name="fav_language" value="Picked By Date"/>Pick Data By Date:
     </label>
 
-    
+<!--CALENDER DATE PICK-->
     <input type="date" id="start"  name="trip-start"
        value="2022-03-03"
        min="2019-01-01" max="2022-03-03" color= "blue">
     </div>
+<!--WHEN PRESSED GENERATE GETMYDATE() FUNCTUON-->
+<div class="text-center">
+    <button id="DatePicker" onclick="getmydate()" >Submit</button>
+</div>
 
-<button id="DatePicker" onclick="getmydate()">Submit</button>
-
-
-
-<div class="row">
+<div class="pierow">
     <div class="column">
-        <h2>Negitive VS Positive</h2>
-    <!--Pie for tested positive -->
+    <h2>Negitive VS Positive</h2>
+    <!--Pie for negitive vs positive -->
     <div id="my-pie-chart-tested"></div>
-    
     <div id="legenda">
       <div class="entry">
         <div id="color-brown" class="entry-color"></div>
@@ -75,8 +75,8 @@
   </div>
 
     <div class="column">
-        <h2> Women VS Men</h2>
-        <!--Pie for men women -->
+        <h2>Positive Women VS Men </h2>
+        <!--Pie for men vs women -->
         <div id="my-pie-chart"></div>
             <div id="legenda">
             <div class="entry">
@@ -93,8 +93,8 @@
 
 
     <div class="column">
-        <h2>Over Age 60 VS Under 60</h2>
-        <!--Pie for age -->
+        <h2>Over VS Under Age 60</h2>
+        <!--Pie for older vs under age 60 -->
             <div id="my-pie-chart-age"></div>
             <div id="legenda">
             <div class="entry">
@@ -107,35 +107,22 @@
         </div>
     </div>
   </div>
+</div>
 
 
-
-
-
-
-<!--
-<p id="TotalNumberOfCovidTests"></p>
-<p id="TotalNumberOfPositiveTests"></p>
--->
-
-         
-
-    
 </pre>
 
-
-
-
-
-
-
-
-<script>// doc was loaded successfully - then run HTML CODE
+<script>// call LoadData Inorder To Get API Data
     (function() {
         LoadData() 
     } )();
 </script>
+
 </body>
+
+
+
+
 
 </html>
 
