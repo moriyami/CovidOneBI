@@ -238,13 +238,15 @@ body {
 
    /* Three image containers */
     .column {
-      float: left;
-      width: 20%;
-      padding: 50px;
-      margin-left: 90px;
-      
+    padding: 20px;
+    margin-left: 130px;
+    float: left;
+    width: 20%;
     }
     
+   
+
+
 
       @media all and (max-width: 1000px) {
         .column {
@@ -265,7 +267,7 @@ body {
     border-radius: 50%;
       width: 200px;
       height: 200px;
-      padding: 30px;
+      padding: 20px;
 
 
   }
@@ -279,7 +281,7 @@ body {
     border-radius: 50%;
       width: 200px;
       height: 200px;
-      padding: 30px;
+      padding: 20px;
  
 
   }
@@ -292,7 +294,7 @@ body {
     border-radius: 50%;
       width: 200px;
       height: 200px;
-      padding: 30px;
+      padding: 20px;
 
 
   }
