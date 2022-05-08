@@ -3,41 +3,25 @@ body {
     background-color: rgb(246, 220, 220);
   }
 
-  
   h1 {
     color: #c93f60;
     text-align:center;
   }
-
-
-  h2{
-      color:#cc4158;  }
-  h3{
-      width: 600px;
-  }
-
- 
-  .headofpage{
-      text-align: center;
-  }
-  .pierows
-  {
-      text-align: center;
-  }
-
-  /*Wont Disply the picker opption*/
+  h2{color:#cc4158;  }
+  h3{width: 600px;}
+  .headofpage{text-align: center;}
+  .pierows{text-align: center;}
+/*Wont Disply the picker opption*/
   .toggle,
   [id^="drop"] {
     display: none;
   }
-  
   /* Giving a background-color to the nav container. */
   nav {
     margin: 0;
     padding: 0;
     background-color: rgb(224, 173, 173);
   }
-  
   
   /* Since we'll have the "ul li" "float:left"
    * we need to add a clear after the container. */
@@ -47,7 +31,6 @@ body {
     display: table;
     clear: both;
   }
-  
   /* Removing padding, margin and "list-style" from the "ul",
    * and adding "position:reltive" */
   nav ul {
@@ -57,14 +40,12 @@ body {
     list-style: none;
     position: relative;
   }
-  
   /* Positioning the navigation items inline */
   nav ul li {
     margin: 0px;
     display: inline-block;
     background-color: rgb(224, 173, 173);
   }
-  
   /* Styling the links */
   nav a {
     display: block;
@@ -73,21 +54,15 @@ body {
     font-size: 17px;
     text-decoration: none;
   }
-  
   nav ul li ul li:hover {
     background: #cc4158;
   }
-  
   /* Background color change on Hover */
   nav a:hover {
     background-color: #bacddd;
   }
-  
-
-  
   /* Media Queries
   --------------------------------------------- */
-  
   @media all and (max-width: 1000px) {
     #logo {
       display: block;
@@ -133,13 +108,10 @@ body {
     }
  
   }
-  
-
  .topnav {
     overflow:hidden;
     background-color: rgb(224, 173, 173);
   }
-  
   .topnav a {
     float: right;
     color: white;
@@ -155,15 +127,17 @@ body {
     color: white;
   }
 
+  
   /*bar chart*/
   .chart-wrap {
     padding-bottom: 150px;
-    margin-left: 500px;
+    margin:auto;
     width: 550px;
     height: 300px;
     font-family: sans-serif;
+  }
 
-}
+
 .title{
   text-align: center;
   padding: 30px;
@@ -231,7 +205,6 @@ body {
 /* Container for  bars */
 .container {
     width: 1000%; /* Full width */
-    background-color: white; /* Grey background */
     height: 8%
   }
   
@@ -272,7 +245,7 @@ body {
       float: left;
       width: 20%;
       padding: 50px;
-      margin-left: 80px;
+      margin-left: 90px;
       
     }
     
@@ -280,10 +253,7 @@ body {
         float: left;
         width: 50%;
         padding: 50px;
-        margin-left: 180px;
-
-    }
-
+        margin-left: 180px;}
 
 
       @media all and (max-width: 1000px) {
@@ -364,6 +334,8 @@ body {
     font-family: arial, sans-serif;
     margin-left: 100px;
     padding: 20px;
+    margin:auto;
+
   }
   
   td, th {
