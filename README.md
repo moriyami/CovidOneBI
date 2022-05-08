@@ -15,7 +15,7 @@ Three pies showing:
 #What is the  % of positive tests are people over or under the age of 60. .
 
 Under the pies there are the total numbers: 
-#How many people where tested positve or negitive from over all tests. 
+#How many people were tested positve or negitive from over all tests. 
 #How many people tested positive  are men, women.
 #How many people tested positive are people over or under the age of 60. .
 
@@ -23,6 +23,6 @@ SYMPTOMES PAGE:
 Table Chart:
 Represents how many people suffered from each symptome. 
 Bar Chat: 
-Represents the % of each symptomes, that way we can see cleary what is the symptome people suffered of most
+Represents the % of each symptomes, that way we can see cleary what is the symptome people suffered from most
 
 
