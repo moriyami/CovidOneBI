@@ -238,8 +238,7 @@ body {
 
    /* Three image containers */
     .column {
-    padding: 20px;
-    margin-left: 120px;
+    margin-left: 160px;
     float: left;
     width: 20%;
     }
